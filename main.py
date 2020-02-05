@@ -4,16 +4,25 @@
 
 # import module
 import calendar
-from datetime import datetime
-import local
+import datetime
+from View.view_event import *
+#import local
 
+if __name__ == '__main__':
+    date= datetime.date.today()
+    str= date
 
-
-today = str(date.today())
-print(today)
-
-yy = 2020
-mm = 2
+    yy = 2020
+    mm = 2
 
 # display the calendar
-print(calendar.month(yy, mm))
+    print(str)
+    print(calendar.month(yy, mm))
+
+
+    event = Event()
+    user_choice = ""
+
+
+event = ViewEven()
+event.action_event()
