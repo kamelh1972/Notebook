@@ -3,6 +3,7 @@
 # given month of the year
 
 # import module
+import os
 import calendar
 import datetime
 from View.view_event import *
@@ -20,9 +21,11 @@ if __name__ == '__main__':
     print(calendar.month(yy, mm))
 
 
-    event = Event()
-    user_choice = ""
+    #event = ViewEven()
+    #user_choice = ""
+    #while user_choice != "q":
+        #user_choice = input("action\n a : voir évènement\n b : supprimer évènement \n c : ajouter évènement \n d : modifier évènement \n q : quit")
 
 
-event = ViewEven()
-event.action_event()
+    event = ViewEven()
+    event.action_event()
