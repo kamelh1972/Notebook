@@ -1,13 +1,13 @@
-from Model.model_event import *
+
 
 class Hydrate:
-    def __init__(self,database=False):
+    def __init__(self,DATABASE=False):
         self.titre = None
         self.date = None
         self.heure = None
         self.description = None
-        if database:
-            self.hydrate(database)
+        if DATABASE:
+            self.hydrate(DATABASE)
 
     def hydrate(self):
         """function to set a value to each attribut based on a dictionnary"""

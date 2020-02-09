@@ -1,17 +1,20 @@
 from Model.connexion import *
+from View.view_hydrate import *
 
 class Event():
     def __init__(self):
         self.db = connection()
 
 
-    def display_event(self,date):
+    def show_event_all(self,date):
         sql="SELECT * FROM events WHERE date = %s;"
         self.db.initialize_connection()
         self.db.cursor.execute(sql,date)
-        result=self.db.cursor.fetchall()
+        events = self.db.cursor.fetchall()
         self.db.close_connection()
-        return result
+        for key,value in enumerate(events):
+            events[key] = Event(value)
+        return events
 
 
     def delete_event(self,date, heure):
@@ -22,7 +25,7 @@ class Event():
         self.db.connection.commit()
         self.db.close_connection()
 
-    def add_event(self,title,date,heure,description):
+    def add_event(self,titre,date,heure,description):
         sql="INSERT INTO events(titre,date,heure,description) VALUES (%s,%s,%s,%s);"
         argument = (titre, date,heure,description)
         self.db.initialize_connection()
